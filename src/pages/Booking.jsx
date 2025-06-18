@@ -22,7 +22,7 @@ const Booking = () => {
       try {
         const [showtimeRes, seatsRes] = await Promise.all([
           api.get(`/showtimes/${showtimeId}`),
-          api.get(`/showtimes/${showtimeId}/seats`)
+          api.get(`/seats/showtime/${showtimeId}`)
         ])
         
         setShowtime(showtimeRes.data)
