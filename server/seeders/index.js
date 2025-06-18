@@ -120,7 +120,7 @@ const seedData = async () => {
           const seatType = (row === 'A' || row === 'B') ? 'premium' : 'regular';
           
           await pool.query(
-            'INSERT INTO seats (bioskop_id, seat_number, row, column, seat_type) VALUES ($1, $2, $3, $4, $5)',
+            'INSERT INTO seats (bioskop_id, seat_number, "row", "column", seat_type) VALUES ($1, $2, $3, $4, $5)',
             [bioskop.id, seatNumber, row, column, seatType]
           );
         }

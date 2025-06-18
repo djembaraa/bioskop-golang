@@ -63,8 +63,8 @@ export const initDatabase = async () => {
         id SERIAL PRIMARY KEY,
         bioskop_id INTEGER REFERENCES bioskops(id) ON DELETE CASCADE,
         seat_number VARCHAR(10) NOT NULL,
-        row VARCHAR(5) NOT NULL,
-        column INTEGER NOT NULL,
+        "row" VARCHAR(5) NOT NULL,
+        "column" INTEGER NOT NULL,
         seat_type VARCHAR(20) DEFAULT 'regular'
       );
     `);

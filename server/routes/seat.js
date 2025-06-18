@@ -16,7 +16,7 @@ router.get('/', async (req, res) => {
       params.push(bioskop_id);
     }
     
-    query += ' ORDER BY row, column';
+    query += ' ORDER BY "row", "column"';
     
     const result = await pool.query(query, params);
     res.json(result.rows);
@@ -45,7 +45,7 @@ router.get('/showtime/:showtime_id', async (req, res) => {
     
     // Get all seats for this bioskop
     const seatsResult = await pool.query(
-      'SELECT * FROM seats WHERE bioskop_id = $1 ORDER BY row, column',
+      'SELECT * FROM seats WHERE bioskop_id = $1 ORDER BY "row", "column"',
       [bioskop_id]
     );
     
@@ -96,7 +96,7 @@ router.post('/', async (req, res) => {
         }
         
         const result = await client.query(
-          'INSERT INTO seats (bioskop_id, seat_number, row, column, seat_type) VALUES ($1, $2, $3, $4, $5) RETURNING *',
+          'INSERT INTO seats (bioskop_id, seat_number, "row", "column", seat_type) VALUES ($1, $2, $3, $4, $5) RETURNING *',
           [bioskop_id, seat_number, row, column, seat_type || 'regular']
         );
         
