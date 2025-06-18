@@ -1,6 +1,6 @@
-# Cinema Booking System (JavaScript)
+# Cinema Booking System - PERN Stack
 
-A modern cinema ticket booking system built with Express.js backend and React frontend.
+A modern cinema ticket booking system built with the PERN stack (PostgreSQL, Express.js, React, Node.js).
 
 ## 🚀 Features
 
@@ -37,8 +37,19 @@ A modern cinema ticket booking system built with Express.js backend and React fr
    ```
 
 3. **Setup PostgreSQL Database**
+   
+   **Option 1: Using Docker (Recommended)**
+   ```bash
+   docker run --name cinema-postgres \
+     -e POSTGRES_PASSWORD=cinema123 \
+     -e POSTGRES_DB=cinema_booking \
+     -p 5432:5432 \
+     -d postgres:15
+   ```
+
+   **Option 2: Local PostgreSQL Installation**
+   - Install PostgreSQL from https://www.postgresql.org/
    - Create a database named `cinema_booking`
-   - Update database credentials in `.env` file
 
 4. **Environment Variables**
    Create a `.env` file in the root directory:
@@ -47,7 +58,7 @@ A modern cinema ticket booking system built with Express.js backend and React fr
    DB_PORT=5432
    DB_NAME=cinema_booking
    DB_USER=postgres
-   DB_PASSWORD=password
+   DB_PASSWORD=cinema123
    PORT=8080
    ```
 
@@ -76,7 +87,8 @@ The application will be available at:
 │   ├── components/        # Reusable components
 │   ├── pages/            # Page components
 │   └── services/         # API services
-└── dist/                 # Build output
+├── dist/                 # Build output
+└── package.json          # Dependencies and scripts
 ```
 
 ## 🎯 API Endpoints
